@@ -1,6 +1,6 @@
 import kotlinx.coroutines.Deferred
 
 interface ProfileServiceRepository {
-    fun asyncFetchByName(name: String): Deferred<Profile>
-    fun asyncFetchById(id: Long): Deferred<Profile>
+    suspend fun findByName(name: String): Profile
+    suspend fun findById(id: Long): Profile
 }

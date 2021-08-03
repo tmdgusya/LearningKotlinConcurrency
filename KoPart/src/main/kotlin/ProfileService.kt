@@ -3,11 +3,11 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
 class ProfileService: ProfileServiceRepository {
-    override fun asyncFetchByName(name: String) = GlobalScope.async {
-        Profile(1, name, 28);
+    override suspend fun findByName(name: String): Profile {
+        return Profile(1, name, 28);
     }
 
-    override fun asyncFetchById(id: Long) = GlobalScope.async {
-        Profile(id, "Roach", 30);
+    override suspend fun findById(id: Long): Profile {
+        return Profile(id, "Roach", 30);
     }
 }
